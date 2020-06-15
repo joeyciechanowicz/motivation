@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {RandomAnimation} from './Random-animation';
-import {YouGotThis} from './motivations/You-got-this';
-import {Rhyme1, Rhyme2, Cheerleader1} from './motivations/ThreePartRhyme';
+import {Cheerleader1, Rhyme1, Rhyme2, YouGotThis} from './motivations/ThreePartRhyme';
 
 // exclusive of max
 const randomIndex = max => Math.floor((Math.random() * max));

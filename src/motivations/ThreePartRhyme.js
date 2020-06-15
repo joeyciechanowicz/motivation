@@ -23,6 +23,11 @@ export const Rhyme2 = ThreePartRhyme(
 	`And you've got a hot bot`
 );
 
+export const YouGotThis = ThreePartRhyme(
+	`You got this`,
+	`Guuuuurl`
+);
+
 export const Cheerleader1 = ThreePartRhyme(
 	`2, 4, 6, 8`,
 	`Who do we appreciate?`,
