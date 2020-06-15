@@ -52,7 +52,7 @@ function App() {
 			setIndex(nextIndex);
 			setExiting(false);
 		}, 2000);
-	}, 5000);
+	}, 20000);
 
 	return (
 		<RandomAnimation shouldExit={exiting}>
