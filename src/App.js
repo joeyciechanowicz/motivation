@@ -1,16 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {RandomAnimation} from './Random-animation';
-import {Cheerleader1, Rhyme1, Rhyme2, YouGotThis} from './motivations/ThreePartRhyme';
+import {motivations} from './motivations/ThreePartRhyme';
 
 // exclusive of max
 const randomIndex = max => Math.floor((Math.random() * max));
-
-const motiviations = [
-	<Rhyme1/>,
-	<Rhyme2/>,
-	<Cheerleader1/>,
-	<YouGotThis/>,
-];
 
 function useInterval(callback, delay) {
 	const savedCallback = useRef();
@@ -35,17 +28,19 @@ function useInterval(callback, delay) {
 
 function App() {
 	const [exiting, setExiting] = useState(false);
-	const [index, setIndex] = useState(randomIndex(motiviations.length));
+	const [index, setIndex] = useState(randomIndex(motivations.length));
 
 	useInterval(() => {
 		const prevIndex = index;
 		setExiting(true);
 
 		setTimeout(() => {
-			let nextIndex = randomIndex(motiviations.length);
+			let nextIndex = randomIndex(motivations.length);
 
-			while (nextIndex === prevIndex) {
-				nextIndex = randomIndex(motiviations.length);
+			if (motivations.length > 1) {
+				while (nextIndex === prevIndex) {
+					nextIndex = randomIndex(motivations.length);
+				}
 			}
 
 			setIndex(nextIndex);
@@ -55,7 +50,7 @@ function App() {
 
 	return (
 		<RandomAnimation shouldExit={exiting}>
-			{motiviations[index]}
+			{motivations[index]}
 		</RandomAnimation>
 	);
 }
